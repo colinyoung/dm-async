@@ -7,10 +7,9 @@ Ohm.flush
 
 store = Store.new
 store.city = "Chicago"
-store.async do |params|
+store.after {|params|
   puts "This code was later'd...\nParams: #{params.to_json}"
-end
-store.save
+}.save
 
 store = Store.new
 store.city = "Chicago"

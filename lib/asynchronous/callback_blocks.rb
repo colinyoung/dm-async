@@ -26,7 +26,7 @@ module Ohm
         end_eval
       end
       
-      def async(&block)
+      def after(&block)
         if block_given?
           @temp_block = block
           puts "Set temp block."
