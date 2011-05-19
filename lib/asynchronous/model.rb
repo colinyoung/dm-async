@@ -13,6 +13,11 @@ module Ohm
       include Ohm::Callbacks # From Ohm-Contrib
       include CallbackBlocks
       
+      def self.handle_remotes_with(sym)
+        # @todo Find another way to do this
+        # self.include(sym.to_s.classify)
+      end
+      
     end
   end
 end
