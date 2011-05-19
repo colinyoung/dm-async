@@ -12,3 +12,14 @@ To use *ohm_async**, simply subclass `Ohm::Asynchronous::Model` instead of `Ohm:
 
      end
 
+
+Adding callbacks
+----------------
+
+`ohm_async` is simple:
+
+      mine = MyModel.new
+			mine.after {|params| 
+				puts params.to_yaml
+			}.save
+			
