@@ -23,3 +23,5 @@ require "ohm"
 prepare do
   Ohm.flush
 end
+
+require "ohm_async"
