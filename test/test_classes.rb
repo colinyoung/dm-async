@@ -1,4 +1,3 @@
-require 'modularity'
 require 'test/sample_handlers'
 
 class Store < Ohm::Asynchronous::Model
@@ -6,6 +5,10 @@ class Store < Ohm::Asynchronous::Model
   attribute :city
   
 	include SampleHandlers
+	
+	after_find do |new_sets|
+	  puts new_sets
+	end
   
   def before_save
     puts "Before save..."

@@ -8,10 +8,10 @@ require File.join(File.dirname(__FILE__), 'callback_blocks')
 module Ohm
 	module Asynchronous
 		class Model < Ohm::Model
-			
+		  
 			include Ohm::Callbacks # From Ohm-Contrib
 			include CallbackBlocks
-			
+						
 		end
 	end
 end
