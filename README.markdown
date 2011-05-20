@@ -40,5 +40,19 @@ Or, if you want to add it after a specific stage (`update`, `delete`, `validate`
 Providing for callbacks params
 ------------------------------
 
+Include a module in your code that defines the methods outlined in `Ohm::Asynchronous::RemoteHandlers`.
 
-
+    # Handler
+    module MyHandler
+      def remote_after_save
+        ...
+      end
+    end
+    
+    # Model
+    class Model < Ohm::Asynchronous::Model
+      ...
+      include MyHandler      
+      ...
+    end
+    

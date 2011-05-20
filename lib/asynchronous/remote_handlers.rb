@@ -1,6 +1,6 @@
 module Ohm
   module Asynchronous
-    module RemoteHandlers
+    class RemoteHandlers
       # Override this method with your own implementation in a subclass.
       # 
       # @return [Array] an array of objects now that the remote action has completed.

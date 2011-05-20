@@ -75,7 +75,7 @@ module Ohm
           @temp_block = nil
         end
         return if @blocks[stage].nil?
-        method = :remote_after_#{stage}
+        method = "remote_after_#{stage}".to_sym
         args = {}                
         args = self.send method if self.respond_to? method
         @blocks[stage].call args
