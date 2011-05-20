@@ -1,6 +1,5 @@
 require 'active_support'
 require 'active_support/core_ext/numeric/time'
-require 'system_timer'
 
 require 'ohm/contrib'
 
