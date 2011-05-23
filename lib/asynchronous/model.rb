@@ -11,6 +11,8 @@ module Ohm
 		  
 			include Ohm::Callbacks # From Ohm-Contrib
 			include CallbackBlocks
+			
+			attr_accessor :model_name
 						
 		end
 	end
