@@ -69,6 +69,7 @@ module Ohm
               else
                 super unless stage == "find"
                 # Retrieve, call, and delete Block
+                # log "Adding block for #{stage}."
                 self.adapter.execute_block_later do 
                   call_block("#{stage}")
                 end
@@ -88,6 +89,7 @@ module Ohm
             return if ["save", "destroy"].include? "#{stage}" # @temp_block is only executed on `save` 
                                                               # and `destroy`,  which always mark the 
                                                               # last steps in an object's lifecycle.
+            # self.class.log "Adding block for #{stage}."
             self.class.adapter.execute_block_later do 
               call_block("#{stage}")
             end
@@ -130,6 +132,7 @@ module Ohm
       # Class Version
       module ClassMethods; def call_block(stage) # :nodoc:
         return if @blocks[stage].nil? and @temp_block.nil?
+        # log "Call block - class - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
         args = {}
         args = self.send method if self.respond_to? method
@@ -145,6 +148,7 @@ module Ohm
       # Instance version
       def call_block(stage)
         return if @temp_block.nil?
+        # log "Call block - instance - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
         args = {}                
         args = self.send method if self.respond_to? method
@@ -152,6 +156,13 @@ module Ohm
         @temp_block.call args
         @temp_block = nil
       end
+      
+      module ClassMethods; def log(msg)
+        if defined? Rails
+          @logfile = Rails.root.join('log', 'ohm_async.log')
+          File.open(@logfile, 'a') {|f| f.puts("[#{Time.now}] #{msg}") }
+        end
+      end; end
       
     end
   end
