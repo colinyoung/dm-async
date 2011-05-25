@@ -1,9 +1,11 @@
 require 'active_support'
+require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/numeric/time'
 
 require 'ohm/contrib'
 
-require File.join(File.dirname(__FILE__), 'callback_blocks')
+require 'asynchronous/callback_blocks'
+require 'asynchronous/adapters/adapters'
 
 module Ohm
 	module Asynchronous
@@ -12,8 +14,15 @@ module Ohm
 			include Ohm::Callbacks # From Ohm-Contrib
 			include CallbackBlocks
 			
-			attr_accessor :model_name
-						
+			cattr_accessor :backend
+
+      def self.adapter
+        const_name = "Adapters::" + "#{self.backend}".camelize
+        const = class_eval "#{const_name}"
+        return const unless !const
+        Adapters::Default
+      end
+									
 		end
 	end
 end

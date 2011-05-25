@@ -1,5 +1,3 @@
-require 'active_support/core_ext/module/attribute_accessors'
-
 module Ohm
   module Asynchronous
     module CallbackBlocks
@@ -71,7 +69,9 @@ module Ohm
               else
                 super unless stage == "find"
                 # Retrieve, call, and delete Block
-                call_block("#{stage}")
+                self.adapter.execute_block_later do 
+                  call_block("#{stage}")
+                end
               end
               self
             end
@@ -88,7 +88,9 @@ module Ohm
             return if ["save", "destroy"].include? "#{stage}" # @temp_block is only executed on `save` 
                                                               # and `destroy`,  which always mark the 
                                                               # last steps in an object's lifecycle.
-            call_block("#{stage}")
+            self.class.adapter.execute_block_later do 
+              call_block("#{stage}")
+            end
           end
         end_eval
         
@@ -106,6 +108,13 @@ module Ohm
         self
       end
       
+      module ClassMethods; def after(&block)
+        if block_given?
+          @temp_block = block
+        end
+        self
+      end; end
+      
       # Overridden methods      
       module ClassMethods
         def all
@@ -120,11 +129,17 @@ module Ohm
       # def call_block(stage)
       # Class Version
       module ClassMethods; def call_block(stage) # :nodoc:
-          return if @blocks[stage].nil?
-          method = "remote_after_#{stage}".to_sym
-          args = {}                
-          args = self.send method if self.class.respond_to? method
-          @blocks[stage].call @instance, args
+        return if @blocks[stage].nil? and @temp_block.nil?
+        method = "remote_after_#{stage}".to_sym
+        args = {}
+        args = self.send method if self.respond_to? method
+        if !@blocks[stage].nil?
+          @blocks[stage].call @instance, args # Call class event first
+        end
+        if @temp_block
+          @temp_block.call @instance, args
+          @temp_block = nil
+        end
       end; end
       
       # Instance version
