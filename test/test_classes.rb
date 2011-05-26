@@ -1,7 +1,9 @@
 require 'test/sample_handlers'
 require 'json'
 
-class Store < Ohm::Asynchronous::Model
+class Store
+  include DataMapper::Asynchronous::Resource
+  
   attribute :name
   attribute :city
   

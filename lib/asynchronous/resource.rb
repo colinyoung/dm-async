@@ -2,16 +2,15 @@ require 'active_support'
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/numeric/time'
 
-require 'ohm/contrib'
+require 'dm-core'
 
 require 'asynchronous/callback_blocks'
 require 'asynchronous/adapters/adapters'
 
-module Ohm
+module DataMapper
 	module Asynchronous
-		class Model < Ohm::Model
+		class Resource < DataMapper::Resource
 		  
-			include Ohm::Callbacks # From Ohm-Contrib
 			include CallbackBlocks
 			
 			cattr_accessor :backend

@@ -1,9 +1,7 @@
 require 'rubygems'
-require 'lib/ohm_async'
+require 'lib/dm-async'
 require 'test/test_classes'
 require 'json'
-
-Ohm.flush
 
 store = Store.new
 store.city = "Chicago"

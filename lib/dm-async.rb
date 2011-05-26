@@ -1,10 +1,10 @@
-require "ohm"
+require "dm-core"
 
 $LOAD_PATH.unshift ::File.expand_path(::File.dirname(__FILE__) + '/lib')
 
-require 'asynchronous/model'
+require 'asynchronous/resource'
 
-module Ohm
+module DataMapper
   module Asynchronous
     
   end

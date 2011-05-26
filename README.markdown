@@ -1,14 +1,15 @@
-OhmAsync
+DataMapper Async
 =========
 
-An optionally-asynchronous special case for Ruby on Rails models, backed by Ohm, an ORM for Redis.
+An optionally-asynchronous special case for Ruby on Rails models, backed by DataMapper.
 
 Usage
 -----
 
-To use **ohm_async** in one of your models, simply subclass `Ohm::Asynchronous::Model` instead of `Ohm::Model`:
+To use **dm-async** in one of your resource, simply `include` `DataMapper::Asynchronous::Resource` instead of `DataMapper::Resource`:
 
-     class MyModel < Ohm::Asynchronous::Model
+     class MyModel
+       include DataMapper::Asynchronous::Resource
      
        # ... your model here
 
@@ -18,7 +19,7 @@ To use **ohm_async** in one of your models, simply subclass `Ohm::Asynchronous::
 Adding callbacks
 ----------------
 
-`ohm_async` is simple:
+`dm-async` is simple:
 
     mine = MyModel.new
     mine.after { |objects| 
@@ -40,7 +41,7 @@ Or, if you want to add it after a specific stage (`update`, `delete`, `validate`
 Providing for callbacks params
 ------------------------------
 
-Include a module in your code that defines the methods outlined in `Ohm::Asynchronous::RemoteHandlers`.
+Include a module in your code that defines the methods outlined in `DataMapper::Asynchronous::RemoteHandlers`.
 
     # Handler
     module MyHandler
@@ -50,7 +51,8 @@ Include a module in your code that defines the methods outlined in `Ohm::Asynchr
     end
     
     # Model
-    class Model < Ohm::Asynchronous::Model
+    class Model
+      include DataMapper::Asynchronous::Resource
       ...
       include MyHandler      
       ...

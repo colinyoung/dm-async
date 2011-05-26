@@ -1,4 +1,4 @@
-module Ohm
+module DataMapper
   module Asynchronous
     module CallbackBlocks
       
@@ -98,7 +98,7 @@ module Ohm
         
       end
       
-      # Pass a block to this method, and chain with Ohm methods like ``save`` and ``create``
+      # Pass a block to this method, and chain with resource methods like ``save`` and ``create``
       # to have that block of code called when those transactions are finalized, asynchronously.
       # The block will be called with an array of model objects, updated from remote.
       #
