@@ -3,18 +3,13 @@ module DataMapper
     module CallbackBlocks
       
       STAGES = %w(create save update validate delete find)
-      
-      def self.included(base)
-        base.extend(ClassMethods)
-      end
-      
+        
       attr_accessor :blocks
       attr_accessor :temp_block
-      
       module ClassMethods
-        attr_accessor :instance
-        attr_accessor :blocks
-        attr_accessor :temp_block
+        mattr_accessor :instance
+        mattr_accessor :blocks
+        mattr_accessor :temp_block
       end
       
       # @method after_find(&block)
@@ -69,8 +64,9 @@ module DataMapper
               else
                 super unless stage == "find"
                 # Retrieve, call, and delete Block
-                # log "Adding block for #{stage}."
-                self.adapter.execute_block_later do 
+                log "Adding block for #{stage} (class)"
+                self.instance ||= self.new
+                self.async_adapter.execute_block_later do 
                   call_block("#{stage}")
                 end
               end
@@ -85,12 +81,11 @@ module DataMapper
         
         eval <<-"end_eval"
           def after_#{stage}
-            self.class.instance ||= self
             return if ["save", "destroy"].include? "#{stage}" # @temp_block is only executed on `save` 
                                                               # and `destroy`,  which always mark the 
                                                               # last steps in an object's lifecycle.
-            # self.class.log "Adding block for #{stage}."
-            self.class.adapter.execute_block_later do 
+            self.class.log "Adding block for #{stage}."
+            self.async_adapter.execute_block_later do 
               call_block("#{stage}")
             end
           end
@@ -132,10 +127,11 @@ module DataMapper
       # Class Version
       module ClassMethods; def call_block(stage) # :nodoc:
         return if @blocks[stage].nil? and @temp_block.nil?
-        # log "Call block - class - after_#{stage}"
+        log "Call block - class - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
         args = {}
-        args = self.send method if self.respond_to? method
+        args = @instance.send method if @instance.respond_to? method
+        puts "Calling with args: #{args.to_yaml}"
         if !@blocks[stage].nil?
           @blocks[stage].call @instance, args # Call class event first
         end
@@ -148,10 +144,10 @@ module DataMapper
       # Instance version
       def call_block(stage)
         return if @temp_block.nil?
-        # log "Call block - instance - after_#{stage}"
+        log "Call block - instance - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
         args = {}                
-        args = self.send method if self.respond_to? method
+        args = @instance.send method if self.respond_to? method
         self.class.call_block(stage) # Call class event first        
         @temp_block.call args
         @temp_block = nil
@@ -161,6 +157,8 @@ module DataMapper
         if defined? Rails
           @logfile = Rails.root.join('log', 'ohm_async.log')
           File.open(@logfile, 'a') {|f| f.puts("[#{Time.now}] #{msg}") }
+        else
+          puts msg
         end
       end; end
       

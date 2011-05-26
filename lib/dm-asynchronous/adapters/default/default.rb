@@ -1,11 +1,11 @@
-module Ohm
+module DataMapper
   module Asynchronous
     module Adapters
       
       class Default
             
         def self.execute_block_later(*args)
-          raise "[Ohm::Asynchronous] WARNING: No backend chosen for ohm_async. Jobs will not be executed asynchronously."
+          raise "[DataMapper::Asynchronous] WARNING: No backend chosen for dm-async. Jobs will not be executed asynchronously."
         end
       
       end

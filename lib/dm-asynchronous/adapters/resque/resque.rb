@@ -4,7 +4,7 @@
 
 Dir[File.dirname(__FILE__) + '/jobs/*.rb'].each {|file| require file }
 
-class Ohm::Asynchronous::Adapters::Resque < Ohm::Asynchronous::Adapters::Default
+class DataMapper::Asynchronous::Adapters::Resque < DataMapper::Asynchronous::Adapters::Default
       
   def self.execute_block_later(&block)
     super block

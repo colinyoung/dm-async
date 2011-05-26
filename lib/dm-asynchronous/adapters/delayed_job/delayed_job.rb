@@ -1,4 +1,4 @@
-class Ohm::Asynchronous::Adapters::DelayedJob < Ohm::Asynchronous::Adapters::Default
+class DataMapper::Asynchronous::Adapters::DelayedJob < DataMapper::Asynchronous::Adapters::Default
   
   def self.execute_block_later(&block)
     log "adding a new Job with #{block}."

@@ -18,10 +18,10 @@ end
 
 $VERBOSE = true
 
-require "ohm"
+require "dm-core"
 
 prepare do
-  Ohm.flush
+  # DataMapper.flush?
 end
 
-require "ohm_async"
+require "dm-async"

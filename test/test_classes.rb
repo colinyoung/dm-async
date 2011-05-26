@@ -1,38 +1,3 @@
 require 'test/sample_handlers'
 require 'json'
-
-class Store
-  include DataMapper::Asynchronous::Resource
-  
-  attribute :name
-  attribute :city
-  
-	include SampleHandlers
-	
-	after_find do |record, new_sets|
-	  puts "Record: #{record.to_hash.to_json}"
-    puts "!!! Class-level after find"
-  end
-	
-  after_save do |record, new_sets|
-    puts "Record: #{record.to_hash.to_json}"
-    puts "!!! Class-level after save"
-  end
-  
-  def to_hash
-    # Ohm requires to you whitelist attributes in to_hash.
-    {:city => city, :id => id}
-  end
-  
-  def before_save
-    puts "Before save..."
-    sleep 1
-    super
-  end
-  
-  def after_save
-    puts "After save..."
-    sleep 1
-    super
-  end
-end
+require File.join(File.dirname(__FILE__), 'redis', 'test_classes')

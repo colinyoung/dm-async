@@ -1,6 +1,6 @@
 require 'yaml'
 
-class Ohm::Asynchronous::Adapters::Threading < Ohm::Asynchronous::Adapters::Default
+class DataMapper::Asynchronous::Adapters::Threading < DataMapper::Asynchronous::Adapters::Default
   
   def self.execute_block_later(&block)
     log "Adding a new Job with #{block}."
@@ -14,9 +14,10 @@ class Ohm::Asynchronous::Adapters::Threading < Ohm::Asynchronous::Adapters::Defa
     @logfile = $stdout
     if defined? Rails
       @logfile = Rails.root.join('log', 'ohm_async_threading.log')
+      File.open(@logfile, 'a') {|f| f.puts("#{msg}") }
+    else
+      @logfile.puts msg
     end
-    @logfile ||= File.join(File.dirname(__FILE__), 'log', 'threading.log')
-    File.open(@logfile, 'a') {|f| f.puts("#{msg}") }
   end
   
 end
@@ -24,7 +25,7 @@ end
 class BlockMonitor < Struct.new(:block)
   
   def self.log(msg)
-    Ohm::Asynchronous::Adapters::Threading.log msg
+    DataMapper::Asynchronous::Adapters::Threading.log msg
   end
   
   def perform
@@ -36,6 +37,7 @@ class BlockMonitor < Struct.new(:block)
     
     before
     result = block.call
+    # @todo if the block fails, the thread stops and no exceptions are caught...
     if result === false
       failure(result)
     else

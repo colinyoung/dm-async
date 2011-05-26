@@ -1,13 +1,21 @@
 require 'rubygems'
-require 'lib/dm-async'
+require 'lib/dm-asynchronous'
+require 'dm-redis-adapter'
 require 'test/test_classes'
 require 'json'
 
-store = Store.new
-store.city = "Chicago"
-store.after {|params|
-  puts "This code was executed after this object was saved.\nThe remote set returned: #{params.to_json}"
-}.save
+puts "Testing Redis models..."
+
+DataMapper.setup(:default, {:adapter  => "redis"})
+DataMapper::Asynchronous.backend = :threading
+
+RedisStore.all
+
+# store = RedisStore.new
+# store.city = "Chicago"
+# # store.after {|params|
+# #   puts "This code was executed after this object was saved.\nThe remote set returned: #{params.to_json}"
+# # }.save
 
 # store = Store.new
 # store.city = "Chicago"
