@@ -64,11 +64,12 @@ module DataMapper
               else
                 super unless stage == "find"
                 # Retrieve, call, and delete Block
-                log "Adding block for #{stage} (class)"
-                self.instance ||= self.new
+                puts "==> Scheduled block at #{Time.now}"
                 self.async_adapter.execute_block_later do 
                   call_block("#{stage}")
                 end
+                # @todo The next big push
+                # EventMachine.defer(follow_up)
               end
               self
             end
@@ -127,16 +128,20 @@ module DataMapper
       # Class Version
       module ClassMethods; def call_block(stage) # :nodoc:
         return if @blocks[stage].nil? and @temp_block.nil?
-        log "Call block - class - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
         args = {}
         args = @instance.send method if @instance.respond_to? method
-        puts "Calling with args: #{args.to_yaml}"
+        if args == {}
+          args = self.send method if self.respond_to? method
+        end
+        
+        # Now, call the model's callbacks (after_#{stage}, etc.)
         if !@blocks[stage].nil?
-          @blocks[stage].call @instance, args # Call class event first
+          # Call class event first
+          @instance.present? ? @blocks[stage].call(@instance, args) : @blocks[stage].call(args)
         end
         if @temp_block
-          @temp_block.call @instance, args
+          @instance.present? ? @temp_block.call(@instance, args) : @temp_block.call(args)
           @temp_block = nil
         end
       end; end
@@ -147,20 +152,22 @@ module DataMapper
         log "Call block - instance - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
         args = {}                
-        args = @instance.send method if self.respond_to? method
+        args = self.send method if self.respond_to? method
         self.class.call_block(stage) # Call class event first        
         @temp_block.call args
         @temp_block = nil
       end
       
-      module ClassMethods; def log(msg)
-        if defined? Rails
-          @logfile = Rails.root.join('log', 'ohm_async.log')
-          File.open(@logfile, 'a') {|f| f.puts("[#{Time.now}] #{msg}") }
-        else
-          puts msg
+      module ClassMethods
+        def log(msg)
+          if defined? Rails
+            @logfile = Rails.root.join('log', 'ohm_async.log')
+            File.open(@logfile, 'a') {|f| f.puts("[#{Time.now}] #{msg}") }
+          else
+            puts msg
+          end
         end
-      end; end
+      end
       
     end
   end

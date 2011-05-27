@@ -25,11 +25,13 @@ GEM
       json (~> 1.4.6)
       stringex (~> 1.2.0)
       uuidtools (~> 2.1.2)
+    eventmachine (0.12.10)
     fastercsv (1.5.4)
     hiredis (0.3.2)
     json (1.4.6)
     redis (2.2.0)
     stringex (1.2.1)
+    system_timer (1.0)
     uuidtools (2.1.2)
 
 PLATFORMS
@@ -42,3 +44,5 @@ DEPENDENCIES
   dm-redis-adapter
   dm-serializer (~> 1.1.0)
   dm-timestamps (~> 1.1.0)
+  eventmachine
+  system_timer

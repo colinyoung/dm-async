@@ -1,0 +1,411 @@
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341320...
+[Block:#2159341320] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341320...
+[Block:#2159341320] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340920...
+[Block:#2159340920] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340600...
+[Block:#2159340600] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341160...
+[Block:#2159341160] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341160...
+[Block:#2159341160] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159524360...
+[Block:#2159524360] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341160...
+[Block:#2159341160] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341060...
+[Block:#2159341060] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341160...
+[Block:#2159341160] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340580...
+[Block:#2159340580] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341320...
+[Block:#2159341320] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+block start
+Executing block with ID #2159340480...
+[Block:#2159340480] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+block start
+Executing block with ID #2159340600...
+[Block:#2159340600] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341220...
+[Block:#2159341220] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341220...
+[Block:#2159341220] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341260...
+[Block:#2159341260] ==> before
+[Block:#2159341260] SUCCESS OK
+Value: --- 
+[Block:#2159341260] ==> after
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340920...
+[Block:#2159340920] ==> before
+[Block:#2159340920] SUCCESS OK
+Value: --- 
+[Block:#2159340920] ==> after
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159341260...
+[Block:#2159341260] ==> before
+[Block:#2159341260] SUCCESS OK
+Value: --- 
+[Block:#2159341260] ==> after
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340920...
+[Block:#2159340920] ==> before
+[Block:#2159340920] SUCCESS OK
+Value: --- 
+[Block:#2159340920] ==> after
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340920...
+[Block:#2159340920] ==> before
+[Block:#2159340920] SUCCESS OK
+Value: --- 
+[Block:#2159340920] ==> after
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340500...
+[Block:#2159340500] ==> before
+[Block:#2159340500] SUCCESS OK
+Value: --- 
+[Block:#2159340500] ==> after
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340500...
+[Block:#2159340500] ==> before
+Adding a new Job with #<Proc:0x00000001018f8020@(eval):12>.
+Executing block with ID #2159340500...
+[Block:#2159340500] ==> before
+[Block:#2159340500] SUCCESS OK
+Value: --- 
+[Block:#2159340500] ==> after
+#<Binding:0x10169ba98>
+Adding a new Job with #<Proc:0x00000001018f7e40@(eval):12>.
+Executing block with ID #2159340480...
+[Block:#2159340480] ==> before
+[Block:#2159340480] SUCCESS OK
+Value: --- 
+[Block:#2159340480] ==> after
+Adding a new Job with #<Proc:0x00000001018f8110@(eval):11>.
+Executing block with ID #2159337760...
+[Block:#2159337760] ==> before
+Adding a new Job with #<Proc:0x00000001018f8110@(eval):11>.
+Executing block with ID #2159337640...
+[Block:#2159337640] ==> before
+sleep
+Adding a new Job with #<Proc:0x00000001018f8110@(eval):11>.
+Executing block with ID #2159337640...
+[Block:#2159337640] ==> before
+#<Thread:0x10169c330>
+Adding a new Job with #<Proc:0x00000001018f8110@(eval):11>.
+Executing block with ID #2159337680...
+[Block:#2159337680] ==> before
+[Block:#2159337680] SUCCESS OK
+Value: NilClass
+[Block:#2159337680] ==> after
+Adding a new Job with #<Proc:0x00000001018f8110@(eval):11>.
+Executing block with ID #2159337680...
+[Block:#2159337680] ==> before
+[Block:#2159337680] SUCCESS OK
+Value: NilClass
+[Block:#2159337680] ==> after
+Adding a new Job with #<Proc:0x00000001018f8110@(eval):11>.
+Executing block with ID #2159337680...
+[Block:#2159337680] ==> before
+[Block:#2159337680] SUCCESS OK
+Value: NilClass
+[Block:#2159337680] ==> after
+Adding a new Job with #<Proc:0x00000001018f7e90@(eval):11>.
+Executing block with ID #2159337360...
+[Block:#2159337360] ==> before
+Adding a new Job with #<Proc:0x00000001018f7e90@(eval):11>.
+Executing block with ID #2159337360...
+[Block:#2159337360] ==> before
+[Block:#2159337360] SUCCESS OK
+Value: 
+[Block:#2159337360] ==> after
+Adding a new Job with #<Proc:0x00000001018f7940@(eval):11>.
+Executing block with ID #2159336920...
+[Block:#2159336920] ==> before
+[Block:#2159336920] SUCCESS OK
+Value: 
+[Block:#2159336920] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+Executing block with ID #2159336640...
+[Block:#2159336640] ==> before
+[Block:#2159336640] SUCCESS OK
+Value: 
+[Block:#2159336640] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+Executing block with ID #2159336640...
+[Block:#2159336640] ==> before
+[Block:#2159336640] SUCCESS OK
+Value: 
+[Block:#2159336640] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+Executing block with ID #2159336540...
+[Block:#2159336540] ==> before
+[Block:#2159336540] SUCCESS OK
+Value: oranges
+[Block:#2159336540] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+Executing block with ID #2159336580...
+[Block:#2159336580] ==> before
+[Block:#2159336580] SUCCESS OK
+Model returned ``
+[Block:#2159336580] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+Executing block with ID #2159336580...
+[Block:#2159336580] ==> before
+[Block:#2159336580] SUCCESS, Model returned ``
+[Block:#2159336580] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+Executing block with ID #2159336580...
+[Block:#2159336580] ==> before
+[Block:#2159336580] SUCCESS, Model returned ''
+[Block:#2159336580] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+[Block:#2159336580] ==> Executing...
+[Block:#2159336580] ==> before
+[Block:#2159336580] SUCCESS, Model returned ''
+[Block:#2159336580] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+[Block:#2159336580] Executing...
+[Block:#2159336580] ==> before
+[Block:#2159336580] SUCCESS, Model returned ''
+[Block:#2159336580] ==> after
+Adding a new Job with #<Proc:0x00000001018f7418@(eval):11>.
+[Block:#2159336580] ==> Executing...
+[Block:#2159336580] before()
+[Block:#2159336580] ==> SUCCESS, Model returned ''
+[Block:#2159336580] after()
+Adding a new Job with #<Proc:0x00000001018f7490@(eval):11>.
+[Block:#2159336640] ==> Executing...
+[Block:#2159336640] before()
+[Block:#2159336640] ==> SUCCESS, Model returned ''
+[Block:#2159336640] after()
+Adding a new Job with #<Proc:0x00000001018f7828@(eval):11>.
+[Block:#2159336760] ==> Executing...
+[Block:#2159336760] before()
+[Block:#2159336760] ==> SUCCESS, Model returned ''
+[Block:#2159336760] after()
+Adding a new Job with #<Proc:0x00000001018f5f00@(eval):12>.
+[Block:#2159333620] ==> Executing...
+[Block:#2159333620] before()
+[Block:#2159333620] ==> SUCCESS, Model returned ''
+[Block:#2159333620] after()
+Adding a new Job with #<Proc:0x00000001018f5f00@(eval):12>.
+[Block:#2159333700] ==> Executing...
+[Block:#2159333700] before()
+Adding a new Job with #<Proc:0x00000001018f5f00@(eval):12>.
+[Block:#2159333620] ==> Executing...
+[Block:#2159333620] before()
+[Block:#2159333620] ==> SUCCESS, Model returned ''
+[Block:#2159333620] after()
+Adding a new Job with #<Proc:0x00000001018f5d20@(eval):12>.
+[Block:#2159333480] ==> Executing...
+[Block:#2159333480] before()
+[Block:#2159333480] ==> SUCCESS, Model returned ''
+[Block:#2159333480] after()
+Adding a new Job with #<Proc:0x00000001018f5d20@(eval):12>.
+[Block:#2159333480] ==> Executing...
+[Block:#2159333480] before()
+[Block:#2159333480] ==> SUCCESS, Model returned ''
+[Block:#2159333480] after()
+Adding a new Job with #<Proc:0x00000001018f5d20@(eval):12>.
+[Block:#2159333480] ==> Executing...
+[Block:#2159333480] before()
+[Block:#2159333480] ==> SUCCESS, Model returned ''
+[Block:#2159333480] after()
+Adding a new Job with #<Proc:0x00000001018f5d20@(eval):12>.
+[Block:#2159333480] ==> Executing...
+[Block:#2159333480] before()
+[Block:#2159333480] ==> SUCCESS, Model returned ''
+[Block:#2159333480] after()
+Adding a new Job with #<Proc:0x00000001018f5d20@(eval):12>.
+[Block:#2159333480] ==> Executing...
+[Block:#2159333480] before()
+[Block:#2159333480] ==> SUCCESS, Model returned ''
+[Block:#2159333480] after()
+Adding a new Job with #<Proc:0x00000001018f5118@(eval):12>.
+[Block:#2159332580] ==> Executing...
+[Block:#2159332580] before()
+[Block:#2159332580] ==> SUCCESS, Model returned ''
+[Block:#2159332580] after()
+Adding a new Job with #<Proc:0x00000001018f5118@(eval):12>.
+[Block:#2159322240] ==> Executing...
+[Block:#2159322240] before()
+[Block:#2159322240] ==> SUCCESS, Model returned ''
+[Block:#2159322240] after()
+Adding a new Job with #<Proc:0x00000001018f5028@(eval):12>.
+[Block:#2159332480] ==> Executing...
+[Block:#2159332480] before()
+[Block:#2159332480] ==> SUCCESS, Model returned ''
+[Block:#2159332480] after()
+Adding a new Job with #<Proc:0x00000001018f50c8@(eval):12>.
+[Block:#2159332520] ==> Executing...
+[Block:#2159332520] before()
+[Block:#2159332520] ==> SUCCESS, Model returned ''
+[Block:#2159332520] after()
+Adding a new Job with #<Proc:0x00000001018f4a60@(eval):12>.
+[Block:#2159331320] ==> Executing...
+[Block:#2159331320] before()
+[Block:#2159331320] ==> SUCCESS, Model returned ''
+[Block:#2159331320] after()
+Adding a new Job with #<Proc:0x00000001018f4d80@(eval):12>.
+[Block:#2159331460] ==> Executing...
+[Block:#2159331460] before()
+Adding a new Job with #<Proc:0x00000001018f4d80@(eval):12>.
+[Block:#2159331460] ==> Executing...
+[Block:#2159331460] before()
+Adding a new Job with #<Proc:0x00000001018f4b50@(eval):12>.
+[Block:#2159331400] ==> Executing...
+[Block:#2159331400] before()
+[Block:#2159331400] ==> SUCCESS, Model returned ''
+[Block:#2159331400] after()
+Adding a new Job with #<Proc:0x00000001018f49e8@(eval):12>.
+[Block:#2159331260] ==> Executing...
+[Block:#2159331260] before()
+[Block:#2159331260] ==> SUCCESS, Model returned ''
+[Block:#2159331260] after()
+Adding a new Job with #<Proc:0x00000001018f5870@(eval):12>.
+[Block:#2159333020] ==> Executing...
+[Block:#2159333020] before()
+[Block:#2159333020] ==> SUCCESS, Model returned ''
+[Block:#2159333020] after()
+Adding a new Job with #<Proc:0x00000001018f4b50@(eval):12>.
+[Block:#2159331900] ==> Executing...
+[Block:#2159331900] before()
+[Block:#2159331900] ==> SUCCESS, Model returned ''
+[Block:#2159331900] after()
+Adding a new Job with #<Proc:0x00000001018f48f8@(eval):12>.
+[Block:#2159331580] ==> Executing...
+[Block:#2159331580] before()
+[Block:#2159331580] ==> SUCCESS, Model returned ''
+[Block:#2159331580] after()
+Adding a new Job with #<Proc:0x00000001018f5c08@(eval):11>.
+[Block:#2159333140] ==> Executing...
+[Block:#2159333140] before()
+Adding a new Job with #<Proc:0x00000001018f74b8@(eval):10>.
+[Block:#2159518720] ==> Executing...
+[Block:#2159518720] before()
+Adding a new Job with #<Proc:0x00000001018f4cb8@(eval):11>.
+[Block:#2159331840] ==> Executing...
+[Block:#2159331840] before()
+[Block:#2159331840] ==> SUCCESS, Model returned ''
+[Block:#2159331840] after()
+Adding a new Job with #<Proc:0x00000001018f61a8@(eval):11>.
+[Block:#2159333880] ==> Executing...
+[Block:#2159333880] before()
+[Block:#2159333880] ==> SUCCESS, Model returned ''
+[Block:#2159333880] after()
+Adding a new Job with #<Proc:0x00000001018f61a8@(eval):11>.
+[Block:#2159333880] ==> Executing...
+[Block:#2159333880] before()
+[Block:#2159333880] ==> SUCCESS, Model returned ''
+[Block:#2159333880] after()
+Adding a new Job with #<Proc:0x00000001018f73a0@(eval):11>.
+[Block:#2159518620] ==> Executing...
+[Block:#2159518620] before()
+[Block:#2159518620] ==> SUCCESS, Model returned ''
+[Block:#2159518620] after()
+Adding a new Job with #<Proc:0x00000001018f7300@(eval):11>.
+[Block:#2159515960] ==> Executing...
+[Block:#2159515960] before()
+[Block:#2159515960] ==> SUCCESS, Model returned ''
+[Block:#2159515960] after()
+Adding a new Job with #<Proc:0x00000001018f6540@(eval):12>.
+[Block:#2159334520] ==> Executing...
+[Block:#2159334520] before()
+Adding a new Job with #<Proc:0x00000001018f6540@(eval):12>.
+[Block:#2159334520] ==> Executing...
+[Block:#2159334520] before()
+Adding a new Job with #<Proc:0x00000001018f5bb8@(eval):12>.
+[Block:#2159332940] ==> Executing...
+[Block:#2159332940] before()
+Adding a new Job with #<Proc:0x00000001018f57f8@(eval):12>.
+[Block:#2159332680] ==> Executing...
+[Block:#2159332680] before()
+[Block:#2159332680] ==> SUCCESS, Model returned ''
+[Block:#2159332680] after()
+Adding a new Job with #<Proc:0x00000001018f3b60@(eval):12>.
+[Block:#2159330840] ==> Executing...
+[Block:#2159330840] before()
+Adding a new Job with #<Proc:0x00000001018f28a0@(eval):13>.
+[Block:#2159329780] ==> Executing...
+[Block:#2159329780] before()
+Adding a new Job with #<Proc:0x00000001018a17c0@(eval):12>.
+[Block:#2159257540] ==> Executing...
+[Block:#2159257540] before()
+[Block:#2159257540] ==> SUCCESS, Model returned ''
+[Block:#2159257540] after()
+Adding a new Job with #<Proc:0x00000001018a1658@(eval):12>.
+[Block:#2159257380] ==> Executing...
+[Block:#2159257380] before()
+Adding a new Job with #<Proc:0x00000001018a15e0@(eval):12>.
+[Block:#2159257160] ==> Executing...
+[Block:#2159257160] before()
+Adding a new Job with #<Proc:0x00000001018a15e0@(eval):12>.
+[Block:#2159257160] ==> Executing...
+[Block:#2159257160] before()
+Adding a new Job with #<Proc:0x00000001018a29b8@(eval):12>.
+[Block:#2159257640] ==> Executing...
+[Block:#2159257640] before()
+Adding a new Job with #<Proc:0x00000001018a1748@(eval):12>.
+[Block:#2159257480] ==> Executing...
+[Block:#2159257480] before()
+Adding a new Job with #<Proc:0x00000001018a1608@(eval):12>.
+[Block:#2159257180] ==> Executing...
+[Block:#2159257180] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159261920] ==> Executing...
+[Block:#2159261920] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159261740] ==> Executing...
+[Block:#2159261740] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159261300] ==> Executing...
+[Block:#2159261300] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159259680] ==> Executing...
+[Block:#2159259680] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159259680] ==> Executing...
+[Block:#2159259680] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159259640] ==> Executing...
+[Block:#2159259640] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159259540] ==> Executing...
+[Block:#2159259540] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159259280] ==> Executing...
+[Block:#2159259280] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159259240] ==> Executing...
+[Block:#2159259240] before()
+Adding a new Job with #<Proc:0x00000001018a61a8@(eval):11>.
+[Block:#2159260420] ==> Executing...
+[Block:#2159260420] before()
+Adding a new Job with #<Proc:0x00000001018f4df8@(eval):11>.
+[Block:#2159259500] ==> Executing...
+[Block:#2159259500] before()

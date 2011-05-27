@@ -7,13 +7,13 @@ class RedisStore
   
 	include SampleHandlers
 	
-  after_find do |record, new_sets|
-    puts "Record: #{record.to_hash.to_json}"
-    puts "!!! Class-level after find"
-  end
+  # after_find do |new_sets|
+  #   puts "Record: #{new_sets.to_json}"
+  #   puts "!!! Class-level after find"
+  # end
   
   after_save do |record, new_sets|
-    puts "Record: #{record.to_hash.to_json}"
+    puts "Record: #{record.to_json}"
     puts "!!! Class-level after save"
   end
   

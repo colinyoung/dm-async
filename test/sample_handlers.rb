@@ -1,11 +1,18 @@
 module SampleHandlers
   
-  def remote_after_find
-    ["apples"]
-  end
+  def self.included(base); base.extend(Methods); end
   
-	def remote_after_save
-	  {:response => {}, :code => 200}
-	end
+  module Methods
+  
+    def remote_after_find
+      sleep 4      
+      ["apples"]
+    end
+  
+  	def remote_after_save
+  	  {:response => {}, :code => 200}
+  	end
+	
+  end
   	
 end

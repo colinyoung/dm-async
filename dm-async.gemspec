@@ -12,4 +12,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'dm-timestamps',     '~> 1.1.0'
   s.add_dependency "cutest", "~> 1.1"
   s.add_dependency "activesupport"
+  s.add_dependency "event_machine"
 end

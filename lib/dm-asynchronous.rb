@@ -1,6 +1,7 @@
 require "dm-core"
 
 $LOAD_PATH.unshift ::File.expand_path(::File.dirname(__FILE__) + '/../lib')
+LOGDIR = File.expand_path('log', File.dirname(__FILE__) + "/../")
 
 require 'active_support'
 require 'active_support/core_ext/class/attribute_accessors'

@@ -9,7 +9,13 @@ puts "Testing Redis models..."
 DataMapper.setup(:default, {:adapter  => "redis"})
 DataMapper::Asynchronous.backend = :threading
 
-RedisStore.all
+puts "###### FIRST"
+puts "###### List of first response should appear immediately after:"
+puts RedisStore.after {|new_records|
+  puts "###### THIRD"
+  puts new_records.to_yaml
+}.all
+puts "###### SECOND"
 
 # store = RedisStore.new
 # store.city = "Chicago"
