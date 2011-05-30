@@ -6,10 +6,12 @@ module DataMapper
         
       attr_accessor :blocks
       attr_accessor :temp_block
+      attr_accessor :operations
       module ClassMethods
         mattr_accessor :instance
         mattr_accessor :blocks
         mattr_accessor :temp_block
+        mattr_accessor :operations
       end
       
       # @method after_find(&block)
@@ -57,6 +59,7 @@ module DataMapper
           module_eval <<-"end_eval"
             def after_#{stage}(&block)
               @blocks = Hash.new if @blocks.nil?
+              @operations = [] if @operations.nil?
               stage = "#{stage}"
               if block_given?
                 # Set block
@@ -65,11 +68,9 @@ module DataMapper
                 super unless stage == "find"
                 # Retrieve, call, and delete Block
                 puts "==> Scheduled block at #{Time.now}"
-                self.async_adapter.execute_block_later do 
+                @operations << self.async_adapter.execute_block_later do 
                   call_block("#{stage}")
                 end
-                # @todo The next big push
-                # EventMachine.defer(follow_up)
               end
               self
             end
@@ -85,8 +86,9 @@ module DataMapper
             return if ["save", "destroy"].include? "#{stage}" # @temp_block is only executed on `save` 
                                                               # and `destroy`,  which always mark the 
                                                               # last steps in an object's lifecycle.
+            @operations = [] if @operations.nil?                                                              
             self.class.log "Adding block for #{stage}."
-            self.async_adapter.execute_block_later do 
+            @operations << self.async_adapter.execute_block_later do 
               call_block("#{stage}")
             end
           end
@@ -166,6 +168,15 @@ module DataMapper
           else
             puts msg
           end
+        end
+        
+        # Finish immediately
+        def finish!
+          arr = []
+          @operations.each do |op|
+            arr << op.pop.join
+          end
+          arr
         end
       end
       

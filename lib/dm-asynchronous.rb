@@ -22,7 +22,7 @@ module DataMapper
     def self.included(base)
       @@base_module = base
       base.extend(ClassMethods)
-      base.extend(CallbackBlocks::ClassMethods)      
+      base.extend(CallbackBlocks::ClassMethods)
     end
     
     def self.backend=(b)

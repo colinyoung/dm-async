@@ -11,11 +11,13 @@ DataMapper::Asynchronous.backend = :threading
 
 puts "###### FIRST"
 puts "###### List of first response should appear immediately after:"
-puts RedisStore.after {|new_records|
+@records = RedisStore.after {|new_records|
   puts "###### THIRD"
   puts new_records.to_yaml
 }.all
 puts "###### SECOND"
+
+@second_records = RedisStore.finish!
 
 # store = RedisStore.new
 # store.city = "Chicago"
