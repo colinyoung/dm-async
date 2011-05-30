@@ -117,9 +117,9 @@ module DataMapper
       
       # Overridden methods      
       module ClassMethods
-        def all
+        def all(*args)
           after_find
-          super
+          super(args)
         end
       end
       
