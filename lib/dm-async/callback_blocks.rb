@@ -119,7 +119,7 @@ module DataMapper
       module ClassMethods
         def all(*args)
           after_find
-          super(args)
+          args.count > 0 ? super(args.first) : super
         end
       end
       
