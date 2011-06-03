@@ -118,8 +118,12 @@ module DataMapper
       # Overridden methods      
       module ClassMethods
         def all(*args)
-          after_find
-          args.count > 0 ? super(args.first) : super
+          unless args.include?(:synchronous)
+            after_find
+          else
+            args.delete :synchronous
+          end
+          args.count > 0 ? super(args.first) : super({})
         end
       end
       
