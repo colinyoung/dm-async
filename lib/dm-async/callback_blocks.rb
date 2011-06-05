@@ -125,6 +125,10 @@ module DataMapper
           end
           args.count > 0 ? super(args.first) : super({})
         end
+        
+        def all!
+          all(:synchronous)
+        end
       end
       
       
