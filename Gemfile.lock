@@ -27,6 +27,7 @@ GEM
       uuidtools (~> 2.1.2)
     eventmachine (0.12.10)
     fastercsv (1.5.4)
+    hashie (1.0.0)
     hiredis (0.3.2)
     json (1.4.6)
     redis (2.2.0)
@@ -45,4 +46,5 @@ DEPENDENCIES
   dm-serializer (~> 1.1.0)
   dm-timestamps (~> 1.1.0)
   eventmachine
+  hashie
   system_timer
