@@ -125,9 +125,11 @@ module DataMapper
           hash = args.first if args.first.is_a?(Hash)
           
           # Extract :order keys
-          hash[:order].each do |operator|
-            hash[:order_by] ||= []
-            hash[:order_by] << "#{operator.instance_variable_get(:@target).to_s}:#{operator.instance_variable_get(:@operator).to_s}"
+          if hash[:order].present?
+            hash[:order].each do |operator|
+              hash[:order_by] ||= []
+              hash[:order_by] << "#{operator.instance_variable_get(:@target).to_s}:#{operator.instance_variable_get(:@operator).to_s}"
+            end
           end
           
           unless hash.include?(:__synchronous)
