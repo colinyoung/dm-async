@@ -118,13 +118,15 @@ module DataMapper
       # Overridden methods      
       module ClassMethods
         def all(*args)
+          hash = {}
+          hash = args.first if args.first.is_a?(Hash)
           unless args.include?(:synchronous)
-            after_find(args)
+            after_find(hash)
           else
-            args.delete :synchronous
+            hash.delete :synchronous
           end
           
-          args.count > 0 ? super(args) : super({})
+          super(hash)
         end
         
         def all!(*args)
