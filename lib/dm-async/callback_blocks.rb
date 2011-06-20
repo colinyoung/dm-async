@@ -57,7 +57,7 @@ module DataMapper
         STAGES.each do |stage|
         
           module_eval <<-"end_eval"
-            def after_#{stage}(&block)
+            def after_#{stage}(*args, &block)
               @blocks = Hash.new if @blocks.nil?
               @operations = [] if @operations.nil?
               stage = "#{stage}"
@@ -69,7 +69,7 @@ module DataMapper
                 # Retrieve, call, and delete Block
                 puts "==> Scheduled block at #{Time.now}"
                 @operations << self.async_adapter.execute_block_later do 
-                  call_block("#{stage}")
+                  call_block("#{stage}", args)
                 end
               end
               self
@@ -82,14 +82,14 @@ module DataMapper
       STAGES.each do |stage|
         
         eval <<-"end_eval"
-          def after_#{stage}
+          def after_#{stage}(*args)
             return if ["save", "destroy"].include? "#{stage}" # @temp_block is only executed on `save` 
                                                               # and `destroy`,  which always mark the 
                                                               # last steps in an object's lifecycle.
             @operations = [] if @operations.nil?                                                              
             self.class.log "Adding block for #{stage}."
             @operations << self.async_adapter.execute_block_later do 
-              call_block("#{stage}")
+              call_block("#{stage}", args)
             end
           end
         end_eval
@@ -119,15 +119,16 @@ module DataMapper
       module ClassMethods
         def all(*args)
           unless args.include?(:synchronous)
-            after_find
+            after_find(args)
           else
             args.delete :synchronous
           end
-          args.count > 0 ? super(args.first) : super({})
+          
+          args.count > 0 ? super(args) : super({})
         end
         
-        def all!
-          all(:synchronous)
+        def all!(*args)
+          all(args.merge(:synchronous))
         end
       end
       
@@ -136,35 +137,36 @@ module DataMapper
       
       # def call_block(stage)
       # Class Version
-      module ClassMethods; def call_block(stage) # :nodoc:
+      module ClassMethods; def call_block(stage, args_for_remote) # :nodoc:
         return if @blocks[stage].nil? and @temp_block.nil?
         method = "remote_after_#{stage}".to_sym
-        args = {}
-        args = @instance.send method if @instance.respond_to? method
-        if args == {}
-          args = self.send method if self.respond_to? method
+        remote_response = {}
+        remote_response = @instance.send(method, args_for_remote) if @instance.respond_to? method
+        if remote_response == {}
+          remote_response = self.send(method, args_for_remote) if self.respond_to? method
         end
         
         # Now, call the model's callbacks (after_#{stage}, etc.)
         if !@blocks[stage].nil?
           # Call class event first
-          @instance.present? ? @blocks[stage].call(@instance, args) : @blocks[stage].call(args)
+          @instance.present? ? @blocks[stage].call(@instance, remote_response) : @blocks[stage].call(remote_response)
         end
         if @temp_block
-          @instance.present? ? @temp_block.call(@instance, args) : @temp_block.call(args)
+          @instance.present? ? @temp_block.call(@instance, remote_response) : @temp_block.call(remote_response)
           @temp_block = nil
         end
       end; end
       
       # Instance version
-      def call_block(stage)
+      def call_block(stage, args_for_remote)
         return if @temp_block.nil?
         log "Call block - instance - after_#{stage}"
         method = "remote_after_#{stage}".to_sym
-        args = {}                
-        args = self.send method if self.respond_to? method
+        
+        remote_response = {}
+        remote_response = self.send(method, args_for_remote) if self.respond_to? method
         self.class.call_block(stage) # Call class event first        
-        @temp_block.call args
+        @temp_block.call remote_response
         @temp_block = nil
       end
       
