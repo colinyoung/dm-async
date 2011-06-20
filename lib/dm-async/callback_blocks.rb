@@ -118,20 +118,41 @@ module DataMapper
       # Overridden methods      
       module ClassMethods
         def all(*args)
+          # Special keys used by DM
+          dm_keys = [:order]
+          
           hash = {}
           hash = args.first if args.first.is_a?(Hash)
-          unless args.include?(:synchronous)
-            after_find(hash)
-          else
-            hash.delete :synchronous
+          
+          # Extract :order keys
+          hash[:order].each do |operator|
+            hash[:order_by] ||= []
+            hash[:order_by] << "#{operator.instance_variable_get(:@target).to_s}:#{operator.instance_variable_get(:@operator).to_s}"
           end
           
-          super(hash)
+          unless hash.include?(:__synchronous)
+            params = hash.dup
+            dm_keys.each {|k| params.delete(k) } # Remove special DM keys
+            after_find(params)
+          else
+            hash.delete :__synchronous
+          end
+          
+          # Forward only the arguments to super that exist on the model.
+          forwardable_args = {}
+          dm_keys << self.properties.collect {|p| p.name.to_s.downcase.to_sym }
+          dm_keys.flatten!
+          dm_keys.each do |key|
+            val = hash[key]
+            forwardable_args[key] = val if val.present?
+          end
+                    
+          super(forwardable_args)
         end
         
         def all!(*args)
           args.first.is_a?(Hash) ? args = args.first : args = {}
-          all(args.merge(:synchronous))
+          all(args.merge(:__synchronous => true))
         end
       end
       
