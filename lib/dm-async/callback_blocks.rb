@@ -130,6 +130,7 @@ module DataMapper
         end
         
         def all!(*args)
+          args.first.is_a?(Hash) ? args = args.first : args = {}
           all(args.merge(:synchronous))
         end
       end
