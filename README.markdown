@@ -62,4 +62,4 @@ Include a module in your code that defines the methods outlined in `DataMapper::
 
 The server will pass along all ordering information from Datamapper.  You should expect a params-array of `order_by[]` values:
 
-...?order_by[]=name%3Adesc&order_by[]=id%3Aasc
+    ...?order_by[]=name%3Adesc&order_by[]=id%3Aasc
