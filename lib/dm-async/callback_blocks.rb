@@ -119,7 +119,7 @@ module DataMapper
       module ClassMethods
         def all(*args)
           # Special keys used by DM
-          dm_keys = [:order]
+          dm_keys = [:order, :remote_id]
           
           hash = {}
           hash = args.first if args.first.is_a?(Hash)
